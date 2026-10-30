@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>ANESTESIA</title>
+<meta name="description" content="Drum machine neuro-ambient: percussioni scure, riverbero profondo, più telefoni a tempo insieme.">
+<meta name="theme-color" content="#04080a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Anestesia">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="noise" aria-hidden="true"></div>
+<main class="app">
+  <header class="top">
+    <div class="brand"><i id="pulse"></i><b>ANESTESIA</b><small>neuro‑ambient drum unit</small></div>
+    <button class="k sm inst" id="instBtn" hidden aria-label="Installa l'app">⤓</button>
+    <button class="monitor" id="monitor" aria-label="Tempo">
+      <span class="m-bpm"><b id="bpmTxt">72</b><small>BPM</small></span>
+      <span class="m-side"><span id="barsTxt">BATT 01/04</span><span id="syncTxt" class="sync-chip">● SOLO</span></span>
+    </button>
+  </header>
+
+  <section class="scope-wrap"><canvas id="scope" aria-label="Monitor dei segnali"></canvas></section>
+
+  <section class="controls">
+    <div class="row">
+      <button class="play" id="playBtn" aria-label="Avvia"><span></span></button>
+      <div class="bars-ctl" aria-label="Lunghezza in battute">
+        <button class="k sm" id="barsDn" aria-label="Meno battute">−</button>
+        <span class="bars-n"><b id="barsN">4</b><small>BATTUTE</small></span>
+        <button class="k sm" id="barsUp" aria-label="Più battute">+</button>
+      </div>
+      <button class="k" id="genBtn">⟳ GENERA</button>
+      <button class="k" id="diceBtn" aria-label="Randomizza tutti i suoni">🎲 KIT</button>
+      <button class="k rec" id="recBtn" aria-pressed="false"><i class="led"></i>REC</button>
+    </div>
+  </section>
+
+  <nav class="tabs" id="tabs">
+    <button data-t="seq">RITMO</button>
+    <button data-t="snd">SUONI</button>
+    <button data-t="rev">SPAZIO</button>
+    <button data-t="fx">EFFETTI</button>
+    <button data-t="sync">SYNC</button>
+  </nav>
+  <section class="panel" id="panel"></section>
+</main>
+
+<div class="toast" id="toast" role="status" hidden></div>
+<section class="sheet" id="sheet" hidden>
+  <div class="sheet-box">
+    <div class="sheet-head"><h2 id="sheetTitle"></h2><button class="x" id="sheetClose" aria-label="Chiudi">✕</button></div>
+    <div class="sheet-body" id="sheetBody"></div>
+  </div>
+</section>
+
+<script src="dsp.js"></script>
+<script src="audio.js"></script>
+<script src="qr.js"></script>
+<script src="sync.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
